@@ -1,15 +1,3 @@
 {
-  "tasks": [
-    {
-      "id": 1,
-      "title": "Realizar estructura de carpetas",
-      "description": "Initialize the project repository for the db-graphql-service microservice.",
-      "details": "Create a new Git repository and set up the initial directory structure for the db-graphql-service. Include a README file and a .gitignore for Python and Docker files.",
-      "testStrategy": "N/A",
-      "priority": "medium",
-      "dependencies": [],
-      "status": "done",
-      "subtasks": []
-    }
-  ]
+
 }
