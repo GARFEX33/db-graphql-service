@@ -52,3 +52,4 @@ __pypackages__/
 .windsurfrules
 /src/generated/prisma
 .pytest_cache
+node_modules/
