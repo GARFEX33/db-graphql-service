@@ -16,7 +16,6 @@ interface ClientFilterArgs {
     id_in?: number[];
     nombre_cliente_contains?: string;
     nombre_cliente_startsWith?: string;
-    detalles_contains?: string;
     created_at?: string;
     updated_at?: string;
     mode?: string;
@@ -54,12 +53,6 @@ export const clientResolvers = {
         };
       }
 
-      if (filter.detalles_contains) {
-        where.detalles = {
-          contains: filter.detalles_contains,
-          mode: filter.mode || 'insensitive',
-        };
-      }
 
       if (filter.created_at) {
         where.created_at = filter.created_at;
@@ -74,20 +67,21 @@ export const clientResolvers = {
   },
   Mutation: {
     createClient: async (_: any, args: ResolverArgs, context: ResolverContext) => {
+      const { nombre_cliente } = args.input;
       return prisma.client.create({
         data: {
-          nombre_cliente: args.input.nombre_cliente,
-          detalles: args.input.detalles,
-        },
+          nombre_cliente,
+        } as any,
       });
     },
     updateClient: async (_: any, { id, input }: { id: number; input: any }, context: ResolverContext) => {
+      const updateData: any = {};
+      if (input.nombre_cliente !== undefined) {
+        updateData.nombre_cliente = input.nombre_cliente;
+      }
       return prisma.client.update({
         where: { id },
-        data: {
-          nombre_cliente: input.nombre_cliente,
-          detalles: input.detalles,
-        },
+        data: updateData as any,
       });
     },
     deleteClient: async (_: any, { id }: { id: number }, context: ResolverContext) => {

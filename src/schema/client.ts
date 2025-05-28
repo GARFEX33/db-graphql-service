@@ -4,7 +4,6 @@ export const clientTypeDefs = gql`
   type Client {
     id: Int!
     nombre_cliente: String!
-    detalles: String
     created_at: String!
     updated_at: String!
     archivos: [File!]!
@@ -12,12 +11,10 @@ export const clientTypeDefs = gql`
 
   input CreateClientInput {
     nombre_cliente: String!
-    detalles: String
   }
 
   input UpdateClientInput {
     nombre_cliente: String
-    detalles: String
   }
 
   input ClientFilterInput {
@@ -25,7 +22,6 @@ export const clientTypeDefs = gql`
     id_in: [Int!]
     nombre_cliente_contains: String
     nombre_cliente_startsWith: String
-    detalles_contains: String
     created_at: String
     updated_at: String
     mode: String
