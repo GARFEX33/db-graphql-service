@@ -1,55 +1,56 @@
-# Python
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
-*.egg-info/
-.installed.cfg
-*.dist-info/
-build/
+# Node
+node_modules/
 dist/
-*.egg
+npm-debug.log
 
-# Docker
-*.dockerignore
-Dockerfile
-docker-compose.yml
+# Prisma generado localmente
+/src/generated/prisma
 
-# Virtual Environment
+# Entornos virtuales de Python (por si mezclas proyectos)
 .venv/
 ENV/
 env/
 env.bak/
 venv.bak/
 
-# IDEs and editors
-.vscode/
-.idea/
-*.sublime-workspace
-*.sublime-project
+# Archivos de Python compilados
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.egg
+*.egg-info/
+*.dist-info/
+.installed.cfg
 
-# Logs
-logs/
-*.log
-
-# Temporary files
-*.tmp
-*.swp
-
-# Tests
+# Archivos y carpetas de pruebas
 tests/
 __pypackages__/
+.pytest_cache
 
-# Environment variables
+# Configuración local
 .env
 .env.*
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
+# Archivos temporales
+*.log
+*.tmp
+*.swp
+logs/
+
+# Archivos de Docker que no quieres copiar al contenedor (opcional)
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Otros específicos de herramientas que usas
 .cursor/
 .roo/
-.scripts/
 .roomodes
 .taskmasterconfig
 .windsurfrules
-/src/generated/prisma
-.pytest_cache
-node_modules/
+.scripts/
