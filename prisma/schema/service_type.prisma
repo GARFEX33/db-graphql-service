@@ -1,0 +1,9 @@
+model ServiceType {
+  id                   Int      @id @default(autoincrement())
+  nombre_tipo_servicio String   @unique // "Mantenimientos", "Levantamientos", "Obras"
+  created_at           DateTime @default(now())
+  updated_at           DateTime @updatedAt
+  archivos             File[]
+
+  @@map("TiposServicio")
+}

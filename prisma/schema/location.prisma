@@ -1,0 +1,11 @@
+model Location {
+  id           Int      @id @default(autoincrement())
+  nombre_lugar String   @unique
+  direccion    String?
+  detalles     String?
+  created_at   DateTime @default(now())
+  updated_at   DateTime @updatedAt
+  archivos     File[]
+
+  @@map("Lugares")
+}

@@ -1,0 +1,24 @@
+model File {
+  id                         Int       @id @default(autoincrement())
+  nombre_original_archivo    String @unique
+  tamano_bytes               Int
+  tipo                       String
+  ruta_almacenamiento_fisico String    @unique
+  cliente_id                 Int
+  lugar_id                   Int
+  tipo_servicio_id           Int
+  analizado_con_ia           Boolean @default(false)
+  es_reporte                 Boolean @default(false)
+  periodicidad               String
+  nombre_equipo              String
+  fecha_realizacion_servicio DateTime?
+  subido_por_usuario_id      String?
+  fecha_subida               DateTime  @default(now())
+  updated_at                 DateTime  @updatedAt
+
+  cliente       Client      @relation(fields: [cliente_id], references: [id])
+  lugar         Location    @relation(fields: [lugar_id], references: [id])
+  tipo_servicio ServiceType @relation(fields: [tipo_servicio_id], references: [id])
+
+  @@map("Archivos")
+}

@@ -1,0 +1,10 @@
+model Client {
+  id             Int      @id @default(autoincrement())
+  nombre_cliente String   @unique
+  detalles       String?
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
+  archivos       File[]
+
+  @@map("Clientes")
+}
